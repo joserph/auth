@@ -16,9 +16,6 @@ Route::get('/', function () {
 });
 
 // Authentication routes...
-Route::get('profile', ['middleware' => 'auth', function() {
-    // Only authenticated users may enter...
-}]);
 Route::get('logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
@@ -55,3 +52,6 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 // Password reset routes...
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
+
+// Admin
+Route::resource('admin', 'AdminController');
