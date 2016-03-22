@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Http\Requests\AdminRequest;
 
-class AdminController extends Controller
+class UsersController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -21,11 +23,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        $contador = 0;
-        return view('admin.index')
-            ->with('users', $users)
-            ->with('contador', $contador);
+        //
     }
 
     /**
@@ -68,7 +66,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('users.edit')
+            ->with('user', $user);
     }
 
     /**
@@ -78,9 +78,14 @@ class AdminController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AdminRequest $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->fill($request->all());
+        //dd($user);
+        $user->save();
+
+        return redirect()->route('admin.index');
     }
 
     /**

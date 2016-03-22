@@ -55,3 +55,6 @@ Route::post('password/reset', 'Auth\PasswordController@postReset');
 
 // Admin
 Route::resource('admin', 'AdminController');
+
+// Users
+Route::resource('users', 'UsersController');
