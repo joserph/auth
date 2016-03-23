@@ -1,6 +1,20 @@
 @extends('admin.template.layout')
 
 @section('content')
+ 	<!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Panel de Administración <small>Usuarios registrados</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li class="active">
+                    <i class="fa fa-edit"></i> Editar usuario
+                </li>
+            </ol>
+        </div>
+    </div>
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
@@ -26,11 +40,11 @@
 					{!! Form::open(['route' => ['users.update', $user], 'method' => 'PUT']) !!}
 						<div class="form-group">							
 							{!! Form::label('name', 'Nombre') !!}
-							{!! Form::text('name', $user->name, ['class' => 'form-control']) !!}							
+							{!! Form::text('name', $user->name, ['class' => 'form-control', 'readonly']) !!}							
 						</div>
 						<div class="form-group">							
 							{!! Form::label('email', 'Email') !!}
-							{!! Form::text('email', $user->email, ['class' => 'form-control']) !!}							
+							{!! Form::text('email', $user->email, ['class' => 'form-control', 'readonly']) !!}							
 						</div>
 						<div class="form-group">							
 							{!! Form::label('role', 'Rol') !!}
@@ -38,10 +52,10 @@
 								'' => 'Seleccionar',
 								'user' => 'User',
 								'editor' => 'Editor',
-								'admin' => 'Admin'], $user->role,['class' => 'form-control']) !!}							
+								'admin' => 'Admin'], $user->role,['class' => 'form-control', 'autofocus']) !!}							
 						</div>
 						
-						{!! Form::submit('Editar', ['class' => 'btn btn-primary']) !!}
+						{!! Form::submit('Editar', ['class' => 'btn btn-warning']) !!}
 					{!! Form::close() !!}
 					
 				</div>

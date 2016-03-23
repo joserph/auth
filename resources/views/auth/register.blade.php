@@ -26,7 +26,7 @@
 					{!! Form::open(['route' => 'register', 'method' => 'POST']) !!}
 						<div class="form-group">							
 							{!! Form::label('name', 'Nombre') !!}
-							{!! Form::text('name', Input::old('name'), ['class' => 'form-control']) !!}							
+							{!! Form::text('name', Input::old('name'), ['class' => 'form-control', 'autofocus']) !!}							
 						</div>
 						<div class="form-group">							
 							{!! Form::label('email', 'Email') !!}

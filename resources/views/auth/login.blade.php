@@ -25,7 +25,7 @@
 					{!! Form::open(['route' => 'login', 'method' => 'POST']) !!}
 						<div class="form-group">							
 							{!! Form::label('email', 'Email') !!}
-							{!! Form::text('email', Input::old('email'), ['class' => 'form-control']) !!}							
+							{!! Form::text('email', Input::old('email'), ['class' => 'form-control', 'autofocus']) !!}							
 						</div>
 						<div class="form-group">							
 							{!! Form::label('password', 'Password') !!}
