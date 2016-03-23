@@ -31,12 +31,8 @@
 							</ul>
 						</div>
 					@endif
-					<div class="text-info">
-						@if(Session::has('message'))
-							{{ Session::get('message') }}
-						@endif
-					</div>
 					
+					@include('flash::message')
 					{!! Form::open(['route' => ['users.update', $user], 'method' => 'PUT']) !!}
 						<div class="form-group">							
 							{!! Form::label('name', 'Nombre') !!}

@@ -77,9 +77,8 @@ class AuthController extends Controller
                 {
                     $message->to($data['email'], $data['name'])->subject('Activate your account');
                 });
-
-                return redirect('register')
-                    ->with('message', 'Registro exitoso!');
+                flash()->warning('<i class="fa fa-check fa-fw"></i> Su cuenta ha sido creada!, Te hemos enviado un e-mail para activar tu cuenta.');
+                return redirect('register');
             }   
         }
     }
@@ -99,13 +98,12 @@ class AuthController extends Controller
 
             if($user->save())
             {
-                return redirect('register')//OJO CAMBIAR CUANDO FUNCIONE LOGIN
-                    ->with('message', 'Activated! You can now sign in!');
+                flash()->success('<i class="fa fa-check-circle fa-fw"></i> Activado! Ahora puede iniciar sesión.');
+                return redirect('login');
             }
         }
-
-        return redirect('register')
-            ->with('message', 'We could not activate your account. Try again later.');
+        flash()->warning('<i class="fa fa-exclamation-triangle fa-fw"></i> No hemos podido activar su cuenta. Inténtalo de nuevo más tarde.');
+        return redirect('register');
     }
 
     public function getLogin()
@@ -135,9 +133,9 @@ class AuthController extends Controller
                 ->withErrors($validator)
                 ->withInput();
             }
-           
-            return redirect('login')
-                ->with('message', 'Email/password wrong, or account not activated.');
+            
+            flash()->warning('<i class="fa fa-exclamation-triangle fa-fw"></i> Email/Contraseña incorrectos, o cuenta no activada.');
+            return redirect('login');
            
         }        
     }

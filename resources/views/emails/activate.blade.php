@@ -20,6 +20,7 @@
 	</div>
 	
 	<p style="text-align: center; font-family: Helvetica;">Follow <a href="http://twitter.com/joserph_a">@joserph_a</a> on Twitter.</p>
+	<hr>
 	<br>
 	
 </body>

@@ -7,6 +7,7 @@
 	<title>@yield('title', 'Auth System')</title>
 
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">
 
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -20,7 +21,7 @@
 	<div id="wrapper">
 		<div class="container">
 			@include('template.nav')
-
+			
 			@yield('content')
 		</div>		
 	</div>

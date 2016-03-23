@@ -5,11 +5,14 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
-				<div class="panel-heading">Register</div>
+				<div class="panel-heading">Registrar</div>
 				<div class="panel-body">
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  								<span aria-hidden="true">&times;</span>
+							</button>
+							<strong><i class="fa fa-exclamation-triangle fa-fw"></i></strong> Por favor corrige los siguentes errores:<br><br>
 							<ul>
 								@foreach ($errors->all() as $error)
 									<li>{{ $error }}</li>
@@ -17,12 +20,7 @@
 							</ul>
 						</div>
 					@endif
-					<div class="text-info">
-						@if(Session::has('message'))
-							{{ Session::get('message') }}
-						@endif
-					</div>
-					
+					@include('flash::message')
 					{!! Form::open(['route' => 'register', 'method' => 'POST']) !!}
 						<div class="form-group">							
 							{!! Form::label('name', 'Nombre') !!}
@@ -33,11 +31,11 @@
 							{!! Form::text('email', Input::old('email'), ['class' => 'form-control']) !!}							
 						</div>
 						<div class="form-group">							
-							{!! Form::label('password', 'Password') !!}
+							{!! Form::label('password', 'Contraseña') !!}
 							{!! Form::password('password', ['class' => 'form-control']) !!}							
 						</div>
 						<div class="form-group">							
-							{!! Form::label('password_confirmation', 'Confirm Password') !!}
+							{!! Form::label('password_confirmation', 'Confirmar Contraseña') !!}
 							{!! Form::password('password_confirmation', ['class' => 'form-control']) !!}							
 						</div>
 						
