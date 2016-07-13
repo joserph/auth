@@ -15,7 +15,7 @@
 				@if (Auth::guest())
 				@else
 					@if(Auth::user()->role == 'admin' || Auth::user()->role == 'editor')
-						<li><a href="{{ route('admin.index') }}">Administración</a></li>
+						<li><a href="{{ route('users.index') }}">Usuarios</a></li>
 					@endif
 				@endif
 			</ul>

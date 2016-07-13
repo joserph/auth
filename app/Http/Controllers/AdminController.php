@@ -22,11 +22,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        $contador = 0;
-        return view('admin.index')
-            ->with('users', $users)
-            ->with('contador', $contador);
+        //
     }
 
     /**

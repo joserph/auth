@@ -24,7 +24,11 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        $contador = 0;
+        return view('users.index')
+            ->with('users', $users)
+            ->with('contador', $contador);
     }
 
     /**
@@ -87,7 +91,7 @@ class UsersController extends Controller
         $user->save();
 
         flash()->success('<i class="fa fa-check fa-fw"></i> El usuario <b>' . $user->name . '</b> se actualizo correctamente!');
-        return redirect()->route('admin.index');
+        return redirect()->route('users.index');
     }
 
     /**
